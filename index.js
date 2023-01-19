@@ -32,7 +32,9 @@ app.get("/readFromDirectory", (req, res) => {
       files.forEach((file) => fileNames.push(file));
       console.log(fileNames.join(", "));
     }
-    res.send(`The filenames are ${fileNames.join(", ")}.`);
+    fileNames.length === 0
+      ? res.send("No files are present in the directory")
+      : res.send(`The filenames are ${fileNames.join(", ")}.`);
   });
 });
 
